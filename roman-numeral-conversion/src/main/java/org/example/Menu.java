@@ -19,5 +19,18 @@ public class Menu {
         return userInput.nextLine();
     }
 
+    public String showRomanToArabicMenu() {
+        System.out.println("1. Enter a Roman Numeral");
+        System.out.println("2. Return to Main Menu");
+
+        return userInput.nextLine();
+    }
+
+    public String showArabicToRomanMenu() {
+        System.out.println("1. Enter a Number");
+        System.out.println("2. Return to Main Menu");
+
+        return userInput.nextLine();
+    }
 
 }
