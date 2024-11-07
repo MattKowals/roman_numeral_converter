@@ -35,8 +35,8 @@ public class RomanNumeralConversionApp {
                 // Convert Roman numeral to number
                 String newSelection = menu.showRomanToNumberMenu();
             } else if (userSelection.equals("2")) {
-                // Convert Number to Roman numeral
-                String newSelection = menu.showNumberToRomanMenu();
+                numberToRomanService.fullNumberToRomanConversion(prompt.promptForString("Enter number"));
+//                String newSelection = menu.showNumberToRomanMenu();
             } else if (userSelection.equals("3")) {
                 menu.goodbyeMessage();
                 break;
