@@ -12,7 +12,7 @@ public class Prompts {
         return userInput.nextLine();
     }
 
-    public double promptForInt(String prompt) {
+    public int promptForInt(String prompt) {
         while (true) {
             System.out.println(prompt);
             String response = userInput.nextLine();

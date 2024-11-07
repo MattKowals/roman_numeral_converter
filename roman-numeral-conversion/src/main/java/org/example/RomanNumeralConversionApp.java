@@ -1,23 +1,21 @@
 package org.example;
 
-import org.example.Services.ArabicToRomanService;
-import org.example.Services.RomanToArabicService;
-
-import java.util.Scanner;
+import org.example.Services.NumberToRomanService;
+import org.example.Services.RomanToNumberService;
 
 public class RomanNumeralConversionApp {
 
     private Prompts prompt;
     private Menu menu;
-    private RomanToArabicService romanToArabicService;
-    private ArabicToRomanService arabicToRomanService;
+    private RomanToNumberService romanToNumberService;
+    private NumberToRomanService numberToRomanService;
 
 
     public RomanNumeralConversionApp() {
         this.menu = new Menu();
         this.prompt = new Prompts();
-        this.romanToArabicService = new RomanToArabicService();
-        this.arabicToRomanService = new ArabicToRomanService();
+        this.romanToNumberService = new RomanToNumberService();
+        this.numberToRomanService = new NumberToRomanService();
     }
 
 
@@ -35,13 +33,15 @@ public class RomanNumeralConversionApp {
             String userSelection = menu.showMainMenu();
             if (userSelection.equals("1")) {
                 // Convert Roman numeral to number
-                String newSelection = menu.showRomanToArabicMenu();
+                String newSelection = menu.showRomanToNumberMenu();
             } else if (userSelection.equals("2")) {
                 // Convert Number to Roman numeral
-                String newSelection = menu.showArabicToRomanMenu();
+                String newSelection = menu.showNumberToRomanMenu();
             } else if (userSelection.equals("3")) {
-                System.out.println("Goodbye!");
+                menu.goodbyeMessage();
                 break;
+            } else if (userSelection.equals("4")) {
+                numberToRomanService.fullNumberToRomanConversion(prompt.promptForString("Enter number"));
             }
 
         }
