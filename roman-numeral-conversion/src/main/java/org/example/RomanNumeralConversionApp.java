@@ -33,6 +33,7 @@ public class RomanNumeralConversionApp {
             String userSelection = menu.showMainMenu();
             if (userSelection.equals("1")) {
                 // Convert Roman numeral to number
+                romanToNumberService.romanToNumberConversion(prompt.promptForString("Enter Roman Numeral"));
                 String newSelection = menu.showRomanToNumberMenu();
             } else if (userSelection.equals("2")) {
                 numberToRomanService.fullNumberToRomanConversion(prompt.promptForString("Enter number"));
