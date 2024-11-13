@@ -9,7 +9,7 @@ public class Prompts {
 
     public String promptForString(String prompt) {
         System.out.println(prompt);
-        return userInput.nextLine();
+        return userInput.nextLine().toUpperCase();
     }
 
     public int promptForInt(String prompt) {

@@ -7,6 +7,20 @@ public class NumberToRomanService {
     public Prompts prompt;
 
 
+    public boolean verifyNumberIsValid(String number) {
+        boolean isValid = true;
+        if (number.contains(".")) {
+            isValid = false;
+        } else {
+            int newNumber = Integer.parseInt(number);
+
+            if (newNumber < 1 || newNumber > 3999) {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
+
     public String convertNumOnesSpot(String number) {
         String ones = "";
         if (number.equals("1")) {

@@ -9,6 +9,7 @@ public class RomanNumeralConversionApp {
     private Menu menu;
     private RomanToNumberService romanToNumberService;
     private NumberToRomanService numberToRomanService;
+    private Rules rules;
 
 
     public RomanNumeralConversionApp() {
@@ -16,6 +17,7 @@ public class RomanNumeralConversionApp {
         this.prompt = new Prompts();
         this.romanToNumberService = new RomanToNumberService();
         this.numberToRomanService = new NumberToRomanService();
+        this.rules = new Rules();
     }
 
 
@@ -34,19 +36,19 @@ public class RomanNumeralConversionApp {
             if (userSelection.equals("1")) {
                 // Convert Roman numeral to number
                 romanToNumberService.romanToNumberConversion(prompt.promptForString("Enter Roman Numeral"));
-                String newSelection = menu.showRomanToNumberMenu();
             } else if (userSelection.equals("2")) {
-                numberToRomanService.fullNumberToRomanConversion(prompt.promptForString("Enter number"));
-//                String newSelection = menu.showNumberToRomanMenu();
+                String number = prompt.promptForString("Enter number");
+                if (numberToRomanService.verifyNumberIsValid(number) == true) {
+                    numberToRomanService.fullNumberToRomanConversion(number);
+                } else System.out.println("Invalid input");
             } else if (userSelection.equals("3")) {
+                rules.displayRomanNumeralSymbols();
+            } else if (userSelection.equals("4")) {
+                rules.displayRulesOfRomanNumerals();
+            } else if (userSelection.equals("5")) {
                 menu.goodbyeMessage();
                 break;
-            } else if (userSelection.equals("4")) {
-                numberToRomanService.fullNumberToRomanConversion(prompt.promptForString("Enter number"));
             }
-
         }
-
     }
-
 }
